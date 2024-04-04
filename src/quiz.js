@@ -29,19 +29,30 @@ class Quiz {
   }
 
   checkAnswer(answer) {
-    let currentQuestion = this.questions[this.currentQuestionIndex];
-    if (answer === currentQuestion.answer) {
+    if (answer === this.getQuestion().answer) {
       this.correctAnswers++;
     }
+
+    /*
+      let currentQuestion = this.questions[this.currentQuestionIndex]; => there is a function for that!
+      if (answer === currentQuestion.answer) {
+       this.correctAnswers++;
+     }
+    */
   }
 
   hasEnded() {
     if (this.currentQuestionIndex < this.questions.length) {
       return false;
-    } else if (this.currentQuestionIndex == this.questions.length) {
-      return true;
     } else {
-      return undefined;
+      return true;
     }
   }
+
+  /*
+  short version:
+      hasEnded() {
+        return this.currentQuestionIndex === this.questions.length;
+      }
+  */
 }
